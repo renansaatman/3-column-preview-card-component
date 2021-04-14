@@ -1,22 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
 
+/* General */
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75); /* (paragraphs) */
+    --very-light-gray: hsl(0, 0%, 95%); /* (background, headings, buttons) */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-size: 93.75%;
+    height: 100vh;
+    
+    width: 100%;
+    max-width: 850px;
+    margin: 10px auto;
+}
+
 /* Headings */
-h2 {
+h1 {
     font-family: 'Big Shoulders Display', cursive;
+    color: var(--very-light-gray);
+
+    padding: 1.3rem 0;
 }
 
 /* Paragraphs */
 p {
     font-family: 'Lexend Deca', sans-serif;
+    color: var(--transparent-white);
+    line-height: 1.6;
+    padding: .5rem 0;
 }
 
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 2.5rem;
+    height: 30rem; 
+}
+
+.card-one {
+    background: var(--bright-orange);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card-one a {
+    color: var(--bright-orange);
+}
+
+.card-two {
+    background: var(--dark-cyan);
+}
+
+.card-two a {
+    color: var(--dark-cyan);
+}
+
+.card-three {
+    background: var(--very-dark-cyan);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.card-three a {
+    color: var(--very-dark-cyan);
+}
+
+/* Card Button */
+.learn-more {
+    font-family: 'Lexend Deca', sans-serif;
+    text-decoration: none;
+    background: var(--very-light-gray);
+    padding: .7rem 1.8rem;
+    border-radius: 30px;
+
+    margin-top: 6rem;
+}
 
 /* Footer */
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media (max-width: 972px) {
+    body {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        max-width: 300px;
+    }
+
+    .grid {
+        grid-template-columns: 300px;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .cards {
+        height: 25rem;
+    }
+
+    .card-one {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0;
+    }
+
+    .card-three {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 0;
+    }
+
+    .learn-more {
+        margin-top: 2.5rem;
+    }
+}
